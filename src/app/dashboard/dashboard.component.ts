@@ -10,6 +10,7 @@ import {
 })
 export class DashboardComponent implements OnInit {
 
+
   Designation!: string;
   Username!: string;
   NoOfTeamMembers!: number;
@@ -20,22 +21,22 @@ export class DashboardComponent implements OnInit {
   AvailableFunds!: number;
   UpcomingProjects!: number;
   Clients!: string[];
-  Projects!: string[];
+  Projects!: any[];
   Years: number[] = [];
   TeamMembersSummary!: any[];
-  TeamMembers!:any[]
+  TeamMembers!: any[]
 
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.Designation = "Team Leader";
     this.Username = "Hamzah Aslam";
     this.NoOfTeamMembers = 89;
     this.TotalCostOfAllProjects = 5687897;
     this.PendingTasks = 44;
     this.UpcomingProjects = 4;
-    this.CurrentExpenditure = 121112;
-    this.AvailableFunds = 45445;
-    this.ProjectCost = 788844;
+    this.ProjectCost = 45455454,
+      this.CurrentExpenditure = 123644,
+      this.AvailableFunds = 5445455
     this.Clients = ["Edify Tech", "Microsoft Inc", "Mindtree Ltd", "Wipro"];
     this.Projects = ["Project A", "Project B", "Project C", "Project D", "Project E"];
     for (var i = 2021; i >= 2010; i--) {
@@ -64,46 +65,136 @@ export class DashboardComponent implements OnInit {
 
 
     ];
-  this.TeamMembers=[
-    {
-      Region:'East',Members:[
-        {Id:1,name:"Hamzah",status:'available'},
-                {Id:2,name:"Aslam",status:'available'},
-        {Id:3,name:"Ansari",status:'unavailable'},
-        {Id:4,name:"Raza",status:'unavailable'},
+    this.TeamMembers = [{
+        Region: 'East',
+        Members: [{
+            Id: 1,
+            name: "Hamzah",
+            status: 'available'
+          },
+          {
+            Id: 2,
+            name: "Aslam",
+            status: 'available'
+          },
+          {
+            Id: 3,
+            name: "Ansari",
+            status: 'unavailable'
+          },
+          {
+            Id: 4,
+            name: "Raza",
+            status: 'unavailable'
+          },
 
-      ]
-    },
+        ]
+      },
       {
-      Region:'West',Members:[
-        {Id:1,name:"Ronaldo",status:'available'},
-                {Id:2,name:"Messi",status:'available'},
-        {Id:3,name:"Neymar",status:'unavailable'},
-        {Id:4,name:"Mbappe",status:'available'},
+        Region: 'West',
+        Members: [{
+            Id: 1,
+            name: "Ronaldo",
+            status: 'available'
+          },
+          {
+            Id: 2,
+            name: "Messi",
+            status: 'available'
+          },
+          {
+            Id: 3,
+            name: "Neymar",
+            status: 'unavailable'
+          },
+          {
+            Id: 4,
+            name: "Mbappe",
+            status: 'available'
+          },
 
-      ]
-    },
+        ]
+      },
       {
-      Region:'South',Members:[
-        {Id:1,name:"Sachin",status:'available'},
-                {Id:2,name:"Kohli",status:'available'},
-        {Id:3,name:"Ansari",status:'unavailable'},
-        {Id:4,name:"Raza",status:'unavailable'},
+        Region: 'South',
+        Members: [{
+            Id: 1,
+            name: "Sachin",
+            status: 'available'
+          },
+          {
+            Id: 2,
+            name: "Kohli",
+            status: 'available'
+          },
+          {
+            Id: 3,
+            name: "Ansari",
+            status: 'unavailable'
+          },
+          {
+            Id: 4,
+            name: "Raza",
+            status: 'unavailable'
+          },
 
-      ]
-    },
+        ]
+      },
       {
-      Region:'North',Members:[
-        {Id:1,name:"Hamzah",status:'available'},
-                {Id:2,name:"Aslam",status:'available'},
-        {Id:3,name:"Ansari",status:'unavailable'},
-        {Id:4,name:"Raza",status:'unavailable'},
+        Region: 'North',
+        Members: [{
+            Id: 1,
+            name: "Hamzah",
+            status: 'available'
+          },
+          {
+            Id: 2,
+            name: "Aslam",
+            status: 'available'
+          },
+          {
+            Id: 3,
+            name: "Ansari",
+            status: 'unavailable'
+          },
+          {
+            Id: 4,
+            name: "Raza",
+            status: 'unavailable'
+          },
 
-      ]
-    },
+        ]
+      },
 
-  ]
+    ]
 
   }
+
+  onProjectChange($event) {
+    if ($event.target.innerText == 'Project A') {
+      this.ProjectCost = 45455454,
+        this.CurrentExpenditure = 123644,
+        this.AvailableFunds = 5445455
+    } else if ($event.target.innerText == 'Project B') {
+      this.ProjectCost = 10000,
+        this.CurrentExpenditure = 6000,
+        this.AvailableFunds = 4000
+    } else if ($event.target.innerText == 'Project C') {
+      this.ProjectCost = 100000,
+        this.CurrentExpenditure = 60000,
+        this.AvailableFunds = 40000
+
+    } else if ($event.target.innerText == 'Project D') {
+      this.ProjectCost = 4000,
+        this.CurrentExpenditure = 2000,
+        this.AvailableFunds = 2000
+    } else {
+      this.ProjectCost = 8000,
+        this.CurrentExpenditure = 4000,
+        this.AvailableFunds = 4000
+    }
+
+  }
+
 
 }
