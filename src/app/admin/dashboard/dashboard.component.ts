@@ -2,6 +2,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { DashboardService } from 'src/app/dashboard.service';
 
 @Component({
   selector: 'dashboard',
@@ -25,7 +26,9 @@ export class DashboardComponent implements OnInit {
   Years: number[] = [];
   TeamMembersSummary!: any[];
   TeamMembers!: any[]
+constructor(private dashboardservice:DashboardService){
 
+}
 
   ngOnInit(): void {
     this.Designation = "Team Leader";
@@ -42,29 +45,7 @@ export class DashboardComponent implements OnInit {
     for (var i = 2021; i >= 2010; i--) {
       this.Years.push(i);
     };
-    this.TeamMembersSummary = [{
-        Region: "East",
-        Members: 10,
-        unavailable: 4
-      },
-      {
-        Region: "West",
-        Members: 20,
-        unavailable: 6
-      },
-      {
-        Region: "South",
-        Members: 100,
-        unavailable: 40
-      },
-      {
-        Region: "North",
-        Members: 30,
-        unavailable: 6
-      },
-
-
-    ];
+    this.TeamMembersSummary = this.dashboardservice.getTeamMembersSummary();
     this.TeamMembers = [{
         Region: 'East',
         Members: [{
