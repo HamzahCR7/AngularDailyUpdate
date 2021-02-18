@@ -98,15 +98,15 @@
         <table class="table table-borderless">
           <tr>
             <td>Project Cost</td>
-            <td>${{ ProjectCost }}</td>
+            <td>{{ ProjectCost | currency:"INR"}}</td>
           </tr>
           <tr>
             <td>Current Expenditure</td>
-            <td>${{ CurrentExpenditure }}</td>
+            <td>${{ CurrentExpenditure | currency:"INR" }}</td>
           </tr>
           <tr>
             <td>Available Funds</td>
-            <td>${{ AvailableFunds }}</td>
+            <td>{{ AvailableFunds| currency:"INR" }}</td>
           </tr>
         </table>
       </div>
@@ -165,7 +165,7 @@
                   <tbody>
                     <tr *ngFor="let data of data1.Members">
                       <td>{{data.Id}}</td>
-                      <td  [style.color]="(data.status=='available')?'blue':'red'">{{data.name}}</td>
+                      <td  [style.color]="(data.status=='available')?'blue':'red'">{{data.name | uppercase}}</td>
                       <td><i class="fa fa-phone"  [style.color]="(data.status=='available')?'blue':'green'"></i> {{data.status}}</td>
                     </tr>
                   
